@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SYNTHETIC example behaviour for the OS20 HVAC lab. Not control software. -->
+<scxml xmlns="http://www.w3.org/2005/07/scxml" version="1.0" name="ControlBoard" initial="off" datamodel="null">
+  <state id="off">
+    <transition event="remote.cool" target="cooling"/>
+    <transition event="remote.heat" target="heating"/>
+    <transition event="remote.fan" target="fanOnly"/>
+  </state>
+  <state id="cooling">
+    <!-- compressor speed from room minus set-point -->
+    <transition event="remote.off" target="off"/>
+    <transition event="remote.heat" target="heating"/>
+    <transition event="remote.fan" target="fanOnly"/>
+  </state>
+  <state id="heating">
+    <transition event="remote.off" target="off"/>
+    <transition event="remote.cool" target="cooling"/>
+    <transition event="remote.fan" target="fanOnly"/>
+    <transition event="outdoor.frost" target="defrost"/>
+  </state>
+  <state id="defrost">
+    <!-- reverse cycle, indoor fan stopped -->
+    <transition event="defrost.complete" target="heating"/>
+    <transition event="remote.off" target="off"/>
+  </state>
+  <state id="fanOnly">
+    <transition event="remote.off" target="off"/>
+    <transition event="remote.cool" target="cooling"/>
+    <transition event="remote.heat" target="heating"/>
+  </state>
+</scxml>

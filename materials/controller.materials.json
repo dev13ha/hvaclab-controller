@@ -1,0 +1,41 @@
+{
+  "schema": "hvaclab-materials-1",
+  "component": "@hvaclab/controller",
+  "synthetic": true,
+  "note": "Synthetic example data, not engineering data.",
+  "totalMassKg": 0.12,
+  "materials": [
+    {
+      "part": "Board laminate",
+      "name": "Glass epoxy",
+      "standardGrade": "IPC-4101/21 FR-4",
+      "densityKgPerM3": 1850,
+      "massFraction": 0.55,
+      "notes": "1.6 mm, 2 layers"
+    },
+    {
+      "part": "Copper foil",
+      "name": "Copper",
+      "standardGrade": "IPC-4562 35 um",
+      "densityKgPerM3": 8960,
+      "massFraction": 0.12,
+      "notes": ""
+    },
+    {
+      "part": "Components",
+      "name": "Mixed electronic components",
+      "standardGrade": "-",
+      "densityKgPerM3": 2500,
+      "massFraction": 0.28,
+      "notes": "MCU, relays, power supply"
+    },
+    {
+      "part": "Solder",
+      "name": "Tin-silver-copper",
+      "standardGrade": "SAC305",
+      "densityKgPerM3": 7400,
+      "massFraction": 0.05,
+      "notes": "Lead free"
+    }
+  ]
+}
